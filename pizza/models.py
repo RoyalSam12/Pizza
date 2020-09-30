@@ -1,3 +1,10 @@
 from django.db import models
 
-# Create your models here.
+
+class Category(models.Model):
+    name = models.CharField(max_length=30)
+
+
+class Pizza(models.Model):
+    pizza_name = models.CharField(max_length=30)
+    category = models.ManyToOneRel(Category,)
