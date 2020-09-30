@@ -7,4 +7,4 @@ class Category(models.Model):
 
 class Pizza(models.Model):
     pizza_name = models.CharField(max_length=30)
-    category = models.ManyToOneRel(Category,)
+    category = models.ForeignKey(Category, on_delete=None)
