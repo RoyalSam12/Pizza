@@ -25,6 +25,7 @@ class Ingredients(models.Model):
 
 class Pizza(models.Model):
     pizza_name = models.CharField(max_length=30)
+    pizza_img = models.ImageField(upload_to='images', null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     ingredients = models.ManyToManyField(Ingredients)
 
