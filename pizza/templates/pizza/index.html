@@ -17,13 +17,15 @@
 <div class="container">
     {% for cat in category %}
         <h1 class="text-center">{{ cat.category_name }}</h1>
-        <div class="card-columns">
+        <div class="row">
             {% for pizza in cat.pizza_set.all %}
-                <div class="card shadow">
-                    <img class="card-img-top" src="{% static pizza.pizza_img %} " alt="{{ pizza.pizza_name }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ pizza.pizza_name }}</h5>
-                        <p class="card-text">{{ pizza.ingredients.all|join:", " }}</p>
+                <div class="col-sm-12 col-lg-6 pb-2">
+                    <div class="card h-100 shadow">
+                        <img class="card-img-top" src="{% static pizza.pizza_img %} " alt="{{ pizza.pizza_name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pizza.pizza_name }}</h5>
+                            <p class="card-text">{{ pizza.ingredients.all|join:", " }}</p>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
