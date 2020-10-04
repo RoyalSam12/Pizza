@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Category, Pizza, Ingredients, Price, Weight
+from .models import (
+    Category, Pizza,
+    Ingredients, Price,
+    Weight, BeveragesCategory,
+    Beverages, BeveragesPrice,
+    BeveragesWeight
+
+)
 
 
 class PriceInline(admin.TabularInline):
@@ -12,6 +19,14 @@ class IngredientsInline(admin.TabularInline):
 
 class WeightInline(admin.TabularInline):
     model = Weight
+
+
+class BeveragesWeightInline(admin.TabularInline):
+    model = BeveragesWeight
+
+
+class BeveragesPriceInline(admin.TabularInline):
+    model = BeveragesPrice
 
 
 class PizzaInline(admin.TabularInline):
@@ -41,9 +56,34 @@ class IngredientsAdmin(admin.ModelAdmin):
     model = Ingredients
 
 
+class BeveragesInLine(admin.TabularInline):
+    model = Beverages
+    exclude = ('drink_img',)
+
+
+class BeveragesAdmin(admin.ModelAdmin):
+    model = Beverages
+    inlines = [
+        BeveragesWeightInline,
+        BeveragesPriceInline
+    ]
+
+
+class BeveragesCategoryAdmin(admin.ModelAdmin):
+    model = BeveragesCategory
+    inlines = [
+        BeveragesInLine,
+    ]
+
+
+
 
 admin.site.register(Category, CategoryAdmin)
 
 admin.site.register(Pizza, PizzaAdmin)
 
 admin.site.register(Ingredients, IngredientsAdmin)
+
+admin.site.register(BeveragesCategory, BeveragesCategoryAdmin)
+
+admin.site.register(Beverages, BeveragesAdmin)
