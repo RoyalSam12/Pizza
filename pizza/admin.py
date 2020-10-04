@@ -3,9 +3,8 @@ from .models import (
     Category, Pizza,
     Ingredients, Price,
     Weight, BeveragesCategory,
-    Beverages, BeveragesPrice,
-    BeveragesWeight
-
+    Beverages, BeveragesWeight,
+    BeveragesPrice
 )
 
 
@@ -22,11 +21,11 @@ class WeightInline(admin.TabularInline):
 
 
 class BeveragesWeightInline(admin.TabularInline):
-    model = BeveragesWeight
+    model = Beverages.weight.through
 
 
 class BeveragesPriceInline(admin.TabularInline):
-    model = BeveragesPrice
+    model = Beverages.price.through
 
 
 class PizzaInline(admin.TabularInline):
@@ -58,7 +57,9 @@ class IngredientsAdmin(admin.ModelAdmin):
 
 class BeveragesInLine(admin.TabularInline):
     model = Beverages
-    exclude = ('drink_img',)
+    exclude = (
+        'drink_img', 'price', 'weight'
+    )
 
 
 class BeveragesAdmin(admin.ModelAdmin):
@@ -67,6 +68,7 @@ class BeveragesAdmin(admin.ModelAdmin):
         BeveragesWeightInline,
         BeveragesPriceInline
     ]
+    exclude = ('price', 'weight')
 
 
 class BeveragesCategoryAdmin(admin.ModelAdmin):
@@ -76,13 +78,15 @@ class BeveragesCategoryAdmin(admin.ModelAdmin):
     ]
 
 
-
-
 admin.site.register(Category, CategoryAdmin)
 
 admin.site.register(Pizza, PizzaAdmin)
 
 admin.site.register(Ingredients, IngredientsAdmin)
+
+admin.site.register(BeveragesWeight)
+
+admin.site.register(BeveragesPrice)
 
 admin.site.register(BeveragesCategory, BeveragesCategoryAdmin)
 

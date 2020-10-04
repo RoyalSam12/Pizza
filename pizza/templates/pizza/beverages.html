@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <script src="{% static "vendor/js/jquery-3.3.1.slim.min.js" %}" defer></script>
+
+    <script src="{% static "vendor/js/popper.min.js" %}" async></script>
+
+    <link rel="stylesheet" href="{% static "vendor/css/bootstrap.min.css" %}">
+
+    <script src="{% static "vendor/js/bootstrap.min.js" %}" defer></script>
+    <meta charset="UTF-8">
+    <title>Beverages</title>
+</head>
+<body>
+{% include 'pizza/basehead.html' %}
+<div class="container">
+    {% for cat in category %}
+        <h1 class="text-center">{{ cat.category_name }}</h1>
+        <div class="row">
+            {% for drink in cat.beverages_set.all %}
+                <div class="col-sm-12 col-lg-6 pb-2">
+                    <div class="card h-100 shadow">
+                        <img class="card-img-top" src="{% static drink.drink_img %} " alt="{{ drink.drink_name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ drink.drink_name }}</h5>
+                        </div>
+                        <div class="card-footer">
+                            <p>Size: {{ drink.weight.all|join:", " }}</p>
+                            <p>Price: {{ drink.price.all|join:", " }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    {% include 'pizza/basefooter.html' %}
+</div>
+</body>
+</html>
