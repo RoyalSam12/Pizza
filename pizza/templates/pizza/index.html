@@ -26,60 +26,65 @@
                             <h5 class="card-title">{{ pizza.pizza_name }}</h5>
                             <p class="card-text">{{ pizza.ingredients.all|join:", " }}</p>
                         </div>
-                        <div id="accordion">
-                            <div class="card-footer" id="headingOne">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link text-secondary" data-toggle="collapse"
-                                            data-target="#collapse{{ pizza.id }}One"
-                                            aria-expanded="true" aria-controls="collapse{{ pizza.id }}One">
-                                        Маленькая
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapse{{ pizza.id }}One" class="collapse show"
-                                 aria-labelledby="heading{{ pizza.id }}One"
-                                 data-parent="#accordion">
-                                <div class="card-body">
-                                    <h6>Вес: {{ pizza.weight.small_pizza_weight }}гр</h6>
-                                    <h6>Цена: {{ cat.price.small_pizza_price }}</h6>
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="heading{{ pizza.id }}One">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link text-secondary" data-toggle="collapse"
+                                                data-target="#collapse{{ pizza.id }}One"
+                                                aria-expanded="true" aria-controls="collapse{{ pizza.id }}One">
+                                            Маленькая
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse{{ pizza.id }}One" class="collapse show"
+                                     aria-labelledby="heading{{ pizza.id }}One"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <h6>Вес: {{ pizza.weight.small_pizza_weight }}гр</h6>
+                                        <h6>Цена: {{ cat.price.small_pizza_price }}</h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="heading{{ pizza.id }}Two">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed text-secondary" data-toggle="collapse"
-                                            data-target="#collapse{{ pizza.id }}Two"
-                                            aria-expanded="false" aria-controls="collapse{{ pizza.id }}Two">
-                                        Средняя
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapse{{ pizza.id }}Two" class="collapse"
-                                 aria-labelledby="heading{{ pizza.id }}Two"
-                                 data-parent="#accordion">
-                                <div class="card-body">
-                                    <h6>Вес: {{ pizza.weight.medium_pizza_weight }}гр</h6>
-                                    <h6>Цена: {{ cat.price.medium_pizza_price }}</h6>
+
+                            <div class="card">
+                                <div class="card-header" id="heading{{ pizza.id }}Two">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed text-secondary" data-toggle="collapse"
+                                                data-target="#collapse{{ pizza.id }}Two"
+                                                aria-expanded="false" aria-controls="collapse{{ pizza.id }}Two">
+                                            Средняя
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse{{ pizza.id }}Two" class="collapse"
+                                     aria-labelledby="heading{{ pizza.id }}Two"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <h6>Вес: {{ pizza.weight.medium_pizza_weight }}гр</h6>
+                                        <h6>Цена: {{ cat.price.medium_pizza_price }}</h6>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="heading{{ pizza.id }}Three">
-                                <h5 class="mb-0">
-                                    <button class="btn btn-link collapsed text-secondary" data-toggle="collapse"
-                                            data-target="#collapse{{ pizza.id }}Three" aria-expanded="false"
-                                            aria-controls="collapse{{ pizza.id }}Three">
-                                        Большая
-                                    </button>
-                                </h5>
-                            </div>
-                            <div id="collapse{{ pizza.id }}Three" class="collapse"
-                                 aria-labelledby="heading{{ pizza.id }}Three"
-                                 data-parent="#accordion">
-                                <div class="card-body">
-                                    <h6>Вес: {{ pizza.weight.large_pizza_weight }}гр</h6>
-                                    <h6>Цена: {{ cat.price.large_pizza_price }}</h6>
+
+
+                            <div class="card">
+                                <div class="card-header" id="heading{{ pizza.id }}Three">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed text-secondary" data-toggle="collapse"
+                                                data-target="#collapse{{ pizza.id }}Three" aria-expanded="false"
+                                                aria-controls="collapse{{ pizza.id }}Three">
+                                            Большая
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapse{{ pizza.id }}Three" class="collapse"
+                                     aria-labelledby="heading{{ pizza.id }}Three"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <h6>Вес: {{ pizza.weight.large_pizza_weight }}гр</h6>
+                                        <h6>Цена: {{ cat.price.large_pizza_price }}</h6>
+                                    </div>
                                 </div>
                             </div>
                         </div>
