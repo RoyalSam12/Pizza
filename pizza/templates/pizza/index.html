@@ -26,7 +26,7 @@
                             <h5 class="card-title">{{ pizza.pizza_name }}</h5>
                             <p class="card-text">{{ pizza.ingredients.all|join:", " }}</p>
                         </div>
-                        <div class="accordion" id="accordionExample">
+                        <div class="accordion" id="accordion{{ pizza.id }}Example">
                             <div class="card">
                                 <div class="card-header" id="heading{{ pizza.id }}One">
                                     <h2 class="mb-0">
@@ -39,7 +39,7 @@
                                 </div>
                                 <div id="collapse{{ pizza.id }}One" class="collapse show"
                                      aria-labelledby="heading{{ pizza.id }}One"
-                                     data-parent="#accordionExample">
+                                     data-parent="#accordion{{ pizza.id }}Example">
                                     <div class="card-body">
                                         <h6>Вес: {{ pizza.weight.small_pizza_weight }}гр</h6>
                                         <h6>Цена: {{ cat.price.small_pizza_price }}</h6>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div id="collapse{{ pizza.id }}Two" class="collapse"
                                      aria-labelledby="heading{{ pizza.id }}Two"
-                                     data-parent="#accordionExample">
+                                     data-parent="#accordion{{ pizza.id }}Example">
                                     <div class="card-body">
                                         <h6>Вес: {{ pizza.weight.medium_pizza_weight }}гр</h6>
                                         <h6>Цена: {{ cat.price.medium_pizza_price }}</h6>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div id="collapse{{ pizza.id }}Three" class="collapse"
                                      aria-labelledby="heading{{ pizza.id }}Three"
-                                     data-parent="#accordionExample">
+                                     data-parent="#accordion{{ pizza.id }}Example">
                                     <div class="card-body">
                                         <h6>Вес: {{ pizza.weight.large_pizza_weight }}гр</h6>
                                         <h6>Цена: {{ cat.price.large_pizza_price }}</h6>
